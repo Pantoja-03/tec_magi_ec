@@ -8,9 +8,9 @@ import os
 from dotenv import load_dotenv
 import pytz
 from unidecode import unidecode
+import time
 
 load_dotenv()
-
 
 
 def get_conn_sf():
@@ -20,6 +20,22 @@ def get_conn_sf():
         security_token = os.getenv('SF_TOKEN')
         )
 
+
+def retry_conect_sf():
+    for i in range(4):
+        time.sleep(1)
+        try:
+            return get_conn_sf()
+            break
+        except:
+            pass
+    
+    raise Exception("Error al conectarse con SF")
+    
+
+
+def get_url_teams():
+    return os.getenv('URL_TEAMS')
 
 def read_soql_sf(soql):
     sf = get_conn_sf()
@@ -68,6 +84,20 @@ def read_sql(query):
     res = pd.read_sql(query, engine)
     
     return res.copy()
+
+
+def get_base_assignments():
+
+    query_assignments = """
+        SELECT * 
+        FROM assignments
+    """
+    
+    base_assignments = read_sql(query_assignments)
+    base_assignments['key'] = base_assignments['owner'].astype(str) + base_assignments['date'].astype(str)
+    
+    return base_assignments.copy()
+
 
 
 def update_processing_leads(leads_id : list):
@@ -182,6 +212,22 @@ def get_phone_black_list():
     return list(res['Black list'].str.lower().unique())
 
 
+def get_special_rules():
+    res = gsuite.get_sheet_data("1KS0aC7HmemmLPqkqzFegQZufMT2_41hyyIHcCVKUtcI", "Reglas de asignacion especiales!A:D")
+    res = res[res['active'] == '1']
+    
+    res = res.drop_duplicates('rule_name', keep='last')
+    return res.copy()
+
+
+def get_rule_filters():
+    res = gsuite.get_sheet_data("1KS0aC7HmemmLPqkqzFegQZufMT2_41hyyIHcCVKUtcI", "Filtros reglas!A:E")
+    res = res.replace('0', False).replace('1', True)
+    
+    return res.copy()
+
+
+
 def get_programs_sf():
     
     soql_programs = """
@@ -197,7 +243,7 @@ def get_programs_sf():
         Where RecordTypeId = '0122M000001cviqQAA' And hed__Account__r.Type not in ('Maestría', 'Especialidad', 'Doctorado')
     """
     
-    sf = get_conn_sf()
+    sf = retry_conect_sf()
     res = pd.DataFrame(sf.query_all(soql_programs)['records'])
     
     res['Escuela'] = res['hed__Account__r'].apply(lambda x: x['Parent']['Name'] if not pd.isna(x) else None)
@@ -236,7 +282,7 @@ def get_campus_sf():
         Where RecordTypeId = '0122M000001cvf5QAA' and activo__c = True and (Zona_Regional__c!= '')
     """
 
-    sf = get_conn_sf()
+    sf = retry_conect_sf()
     res = pd.DataFrame(sf.query_all(soql_campus)['records'])
 
     #Apply changes
@@ -401,129 +447,6 @@ def get_dns_host():
     
     return mx_dns_host
 
-
-
-def update_iup(base: pd.DataFrame):   
-    base = base.fillna('')
-
-    
-    cols = [
-        'processing_date',
-        'upload_date',
-        'status',
-        'full_name',
-        'email',
-        'valid_email',
-        'loaded_phone',
-        'valid_phone',
-        'loaded_campus',
-        'valid_campus',
-        'region',
-        'corrected_program_name',
-        'loaded_program',
-        'valid_program',
-        'modality',
-        'program_type',
-        'field_interest',
-        'supplier',
-        'owner',
-        'owner_region',
-        'queue_id',
-        'valid_lead',
-        'repeat_in_base',
-        'original_lead',
-        'comments',
-        'remote_id',
-        'sf_id',
-        'sf_creation_date',
-        'sf_status',
-        'sf_source',
-        'assignment_date',
-        'assignment_type',
-        'validation_type',
-        'year_week',
-        'owner_assignment',
-        'origin_campaign',
-        'owner_name',
-        'validate_cc',
-        'status_assignment',
-        'sf_program',
-        'sf_owner',
-        'owner_modified',  
-        'id'
-    ]
-
-
-    base_to_iup = base[cols]
-    
-    base_iup = []
-    
-    ix: int
-    row: pd.Series
-    for ix, row in base_to_iup.iterrows():
-         base_iup.append(tuple(row))
-        
-    query = """
-        UPDATE leads 
-        SET 
-            processing_date = %s,
-            upload_date = %s,
-            status = %s,
-            full_name = %s,
-            corrected_email = %s,
-            valid_email = %s,
-            loaded_phone = %s,
-            valid_phone = %s,
-            loaded_campus = %s,
-            valid_campus = %s,
-            region = %s,
-            corrected_program_name = %s,
-            loaded_program = %s,
-            valid_program = %s,
-            modality = %s,
-            program_type = %s,
-            field_interest = %s,
-            supplier = %s,
-            owner = %s,
-            owner_region = %s,
-            queue_id = %s,
-            valid_lead = %s,
-            repeat_in_base = %s,
-            original_lead = %s,
-            comments = %s,
-            remote_id = %s,
-            sf_id = %s,
-            sf_creation_date = %s,
-            sf_status = %s,
-            sf_source = %s,
-            assignment_date = %s,
-            assignment_type = %s,
-            validation_type = %s,
-            year_week = %s,
-            owner_assignment = %s,
-            origin_campaign = %s,
-            owner_name = %s,
-            validate_cc = %s,
-            status_assignment = %s,
-            sf_program = %s,
-            sf_owner = %s,
-            owner_modified = %s 
-
-        WHERE id = %s
-    """
-
-    conn = get_conn_db()
-
-    cursor = conn.cursor()
-    res = cursor.executemany(query, base_iup)
-    conn.commit()
-    cursor.close()
-    conn.close()
-    
-    if res != len(base):
-        print("Existieron " + str(len(base) - res) + " leads que no se pudieron actualizar en iup")
-        
-    print("Status actualizado en iup")
 
     
 def get_sf_users():

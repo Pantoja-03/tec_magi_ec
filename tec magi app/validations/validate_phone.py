@@ -91,6 +91,7 @@ def validate(base: pd.DataFrame()):
     base.loc[(base.len_phone != 12) & (base.phone_corrected.str[:2] == '52'), 'valid_phone'] = False
     
     #empty loaded_phone
+    base['loaded_phone'] = base['phone_corrected'].copy()
     base.loc[base.valid_phone == False, 'loaded_phone'] = ""
     
     

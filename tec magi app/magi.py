@@ -41,7 +41,7 @@ start_time = magi_conn.get_datetime()
 #start
 try:
     log.info(f'Obteniendo leads a procesar - {magi_conn.get_datetime()}')
-    base = magi_conn.get_iup_leads(status = 'procesando')
+    base = magi_conn.get_iup_leads()
     base = base.fillna('')
 
     #verify base
