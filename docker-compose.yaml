@@ -4,5 +4,5 @@ services:
     build: .
     volumes:
       - type: bind
-        source: ./app/tec magi app/resources
+        source: ./resources
         target: /app/resources
