@@ -46,6 +46,14 @@ def validate(base: pd.DataFrame):
     programs_invalids = base[['corrected_program_name', 'source']][(~base['corrected_program_name'].isin(program_invalids['Programa'])) & (base['valid_program'] == False) & (base['status'] == 'Contacto Nuevo')].drop_duplicates().copy()
     programs_invalids = programs_invalids[~programs_invalids['corrected_program_name'].isin([np.nan, ""])]
 
+    # #add modality
+    base['modality'] = base.apply(lambda row: "Aula Virtual" if str(row['loaded_program']).title().find("Virtual") >= 0 else row['modality'],axis=1)
+    base['modality'] = base.apply(lambda row: "En línea" if str(row['loaded_program']).title().find("Programa En Línea") >= 0 else row['modality'],axis=1)
+    base['modality'] = base.apply(lambda row: "En línea" if str(row['loaded_program']).title().find("Executive Education") >= 0 else row['modality'],axis=1)   
+    base['modality'] = base.apply(lambda row: "Live" if str(row['loaded_program']).title().find("Live") >= 0 else row['modality'],axis=1)
+    base['modality'] = base.apply(lambda row: "Learning Gate" if str(row['loaded_program']).title().find("Tlg") >= 0 else row['modality'],axis=1)
+    
+
 
     del base['ALIAS']
     
