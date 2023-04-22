@@ -90,10 +90,6 @@ def assignment(base : pd.DataFrame, sf_leads : pd.DataFrame):
     base['owner_id'] = base['rule_name'].map(rules['owner_id'])
  
     
-    #print specials rule
-    print("\n.........")
-    print("Asignaciones especiales encontradas:")
-    print(base['rule_name'].value_counts())
 
     del base['filtros_determinantes']
     del base['filtros_no_determinantes']
@@ -103,7 +99,14 @@ def assignment(base : pd.DataFrame, sf_leads : pd.DataFrame):
     base_direct = base[~base['owner_id'].isin([np.nan, '', None])].copy()
     base_direct['assignment_type'] = 'Asignacion por regla especial'
     base_direct['validation_type'] = 'Lead no validado'
+    
+    if len(base_direct) > 0:
+        #print specials rule
+        print("\n.........")
+        print("Asignaciones especiales encontradas:")
+        print(base['rule_name'].value_counts())
         
+    base = base[base['owner_id'].isin([np.nan, '', None])].copy()    
     base = base[base['owner_id'].isin([np.nan, '', None])].copy()
     
     
@@ -139,11 +142,10 @@ def assignment(base : pd.DataFrame, sf_leads : pd.DataFrame):
         base_repeat = base[(base['repeat_lead'])].copy()
         base = base[(base['repeat_lead'] == False)].copy()
         
-        
         # assginment by probabilities
         base['assignment_type'] = 'Asignacion por carrusel'
         base_nacional = base[(base['region'] == 'Región Nacional') & (base['modality'].isin(['Live', 'Aula Virtual', 'Presencial']))].copy()
-        base = base[base['region'] != 'Región Nacional'].copy()
+        base = base[~base['id'].isin(base_nacional['id'])].copy()
         
         random.seed(10)
         base_nacional['region'] = base_nacional['region'].apply(lambda x: get_region_probabilty() )
