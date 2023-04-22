@@ -62,7 +62,7 @@ def run_magi(base: pd.DataFrame, use_bulk = True):
         
         #magi update assignment
         log.info(f'Actualizando la asignacion diaria - {magi_conn.get_datetime()}')
-        magi_update_assignment.update_assignment(base)
+        magi_update_assignment.update_current_assignment(base)
         
         
         #send to asignator
