@@ -3,4 +3,6 @@ services:
   webapp:
     build: .
     volumes:
-      - ./records/logs : /app/records/logs
+      - ./resources/ : /app/tec magi app/resources/
+volumes:
+  resources:
