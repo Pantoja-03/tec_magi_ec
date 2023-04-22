@@ -136,7 +136,7 @@ def validate_program(base: pd.DataFrame):
     if len(programs_invalids) > 0:
         msg = 'No se encontraron en los catalogos los siguientes programas: \n'
         for program in programs_invalids.iterrows():
-            program_name = program[1]['program_corrected']
+            program_name = program[1]['corrected_program_name']
             msg = f"{msg} \n\t {program_name} - {program[1]['source']}"
 
         #Send warning
