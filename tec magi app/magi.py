@@ -54,7 +54,7 @@ try:
         
         log.info(f'Duracion {time_elapsed} - {magi_conn.get_datetime()}') 
         
-        if res:
+        if res == True:
             log.info(f'Se procesaron {len(base)} - {magi_conn.get_datetime()}')
             log.info(f'Se asignaron {len(base[(base["owner"] != "") & (base["owner"] != "andres.pantoja@tec.mx")])} datos - {magi_conn.get_datetime()}')            
             log.info(f'Proceso terminado de manera correcta - {magi_conn.get_datetime()}')
