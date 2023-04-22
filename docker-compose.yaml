@@ -3,6 +3,7 @@ services:
   webapp:
     build: .
     volumes:
-      - ./resources/ : /app/tec magi app/resources/
-volumes:
-  resources:
+      resources:
+        type: bind
+        source: ./app/tec magi app/resources
+        target: /app/resources
