@@ -378,7 +378,7 @@ def get_sf_prospectos(last_days = 100):
     res = read_soql_sf(soql_prospectos)
     
     res.rename(columns={'VEC_Programa__c':'Programa'}, inplace=True)
-
+    res['Programa'] = res['Programa'].str[:15]
     res['Etapa'] = "Prospectos"
     
     return res[['Id', 'Status', 'Email','Phone','MobilePhone','Programa', 'Etapa', 'OwnerId', 'CreatedDate']]
@@ -412,7 +412,7 @@ def get_sf_opp(last_days = 100):
     res['MobilePhone'] = res['VEC_BusinessContact__r'].apply(lambda x: x['MobilePhone'] if not pd.isnull(x) else None)
 
     res.rename(columns={'VEC_Correo_electronico_contacto__c':'Email', 'StageName':'Status'}, inplace=True)
-    
+    res['Programa'] = res['Programa'].str[:15]
     res['Etapa'] = "Oportunidad"
     
 
