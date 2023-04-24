@@ -4,3 +4,6 @@
 *.ini
 *.pyc
 *.log
+tec magi app/resources/catalogos/program_catalogs.pkl
+*.pkl
+*.pyc
