@@ -252,19 +252,19 @@ Región Internacional:
     like_program: []
     max: 9000
   - bag: 0
-    current: 1190
+    current: 1191
     dislike_program: []
     email: angela.tovar@tec.mx
     like_program: []
     max: 9000
   - bag: 0
-    current: 1190
+    current: 1191
     dislike_program: []
     email: miguelgallo@tec.mx
     like_program: []
     max: 9000
   - bag: 0
-    current: 966
+    current: 967
     dislike_program: []
     email: polethsan@tec.mx
     like_program: []
@@ -277,7 +277,7 @@ Región Internacional:
     max: 9000
   filters: []
   id: faa03cd2-d7be-4afb-baeb-33b055af2293
-  next_asesor: 14
+  next_asesor: 17
 Región Nacional:
 - asesores:
   - bag: 0
@@ -647,31 +647,31 @@ Región Nacional:
     like_program: []
     max: 9000
   - bag: 0
-    current: 22
+    current: 23
     dislike_program: []
     email: christian.valdez@tec.mx
     like_program: []
     max: 9000
   - bag: 0
-    current: 22
+    current: 23
     dislike_program: []
     email: c.ochoa@tec.mx
     like_program: []
     max: 9000
   - bag: 0
-    current: 22
+    current: 23
     dislike_program: []
     email: cyn.deleon@tec.mx
     like_program: []
     max: 9000
   - bag: 0
-    current: 22
+    current: 23
     dislike_program: []
     email: daniela_barragan_m@tec.mx
     like_program: []
     max: 9000
   - bag: 0
-    current: 22
+    current: 23
     dislike_program: []
     email: dlimonr@tec.mx
     like_program: []
@@ -816,11 +816,11 @@ Región Nacional:
     max: 9000
   filters: []
   id: a48c0d4f-3b6b-41e0-af06-85f51b99ce07
-  next_asesor: 61
+  next_asesor: 66
 Región TLG:
 - asesores:
   - bag: 0
-    current: 661
+    current: 662
     dislike_program: []
     email: dalia.barron@tec.mx
     like_program: []
@@ -916,11 +916,11 @@ Región TLG:
     like_program: []
     max: 9000
   - bag: 0
-    current: 113
+    current: 114
     dislike_program: []
     email: ruben.lopez.e@tec.mx
     like_program: []
     max: 9000
   filters: []
   id: 1d795b1c-9542-4977-98f6-36602ade0003
-  next_asesor: 16
+  next_asesor: 1

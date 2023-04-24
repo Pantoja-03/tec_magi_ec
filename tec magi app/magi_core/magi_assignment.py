@@ -106,7 +106,6 @@ def assignment(base : pd.DataFrame, sf_leads : pd.DataFrame):
         print("Asignaciones especiales encontradas:")
         print(base['rule_name'].value_counts())
         
-    base = base[base['owner_id'].isin([np.nan, '', None])].copy()    
     base = base[base['owner_id'].isin([np.nan, '', None])].copy()
     
     
