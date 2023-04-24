@@ -83,6 +83,12 @@ Región ECL:
     email: israel.herrera@tec.mx
     like_program: []
     max: 9000
+  - bag: 0
+    current: 0
+    dislike_program: []
+    email: sanjuanita.puente@tec.mx
+    like_program: []
+    max: 9000
   filters: []
   id: 1d795b1c-9542-4977-98f6-36602ade1158
   next_asesor: 7
@@ -395,12 +401,6 @@ Región Nacional:
     like_program: []
     max: 9000
   - bag: 0
-    current: 2810
-    dislike_program: []
-    email: vanessa.vazquez@tec.mx
-    like_program: []
-    max: 9000
-  - bag: 0
     current: 2865
     dislike_program: []
     email: avila.charles@tec.mx
@@ -455,12 +455,6 @@ Región Nacional:
     like_program: []
     max: 9000
   - bag: 0
-    current: 541
-    dislike_program: []
-    email: nalleli.tapia@tec.mx
-    like_program: []
-    max: 9000
-  - bag: 0
     current: 545
     dislike_program: []
     email: iris.m@tec.mx
@@ -494,12 +488,6 @@ Región Nacional:
     current: 287
     dislike_program: []
     email: anamel.farrera@tec.mx
-    like_program: []
-    max: 9000
-  - bag: 0
-    current: 214
-    dislike_program: []
-    email: antonio.buendia@tec.mx
     like_program: []
     max: 9000
   - bag: 0
@@ -581,235 +569,175 @@ Región Nacional:
     like_program: []
     max: 9000
   - bag: 0
-    current: 200
-    dislike_program: []
-    email: stephany.garsi@tec.mx
-    like_program: []
-    max: 9000
-  - bag: 0
     current: 179
     dislike_program: []
     email: daniel_najera@tec.mx
     like_program: []
     max: 9000
   - bag: 0
-    current: 23
-    dislike_program: []
-    email: alejandra.barradas@tec.mx
-    like_program: []
-    max: 9000
-  - bag: 0
-    current: 23
-    dislike_program: []
-    email: alex.hernandez@tec.mx
-    like_program: []
-    max: 9000
-  - bag: 0
-    current: 23
+    current: 0
     dislike_program: []
     email: aroblesv@tec.mx
     like_program: []
     max: 9000
   - bag: 0
-    current: 23
+    current: 0
     dislike_program: []
     email: abolanos@tec.mx
     like_program: []
     max: 9000
   - bag: 0
-    current: 23
+    current: 0
     dislike_program: []
     email: anamel.farrera@tec.mx
     like_program: []
     max: 9000
   - bag: 0
-    current: 23
-    dislike_program: []
-    email: anamel.farrera@tec.mx
-    like_program: []
-    max: 9000
-  - bag: 0
-    current: 23
-    dislike_program: []
-    email: francisco.reyna@tec.mx
-    like_program: []
-    max: 9000
-  - bag: 0
-    current: 23
-    dislike_program: []
-    email: carlos.lugo@tec.mx
-    like_program: []
-    max: 9000
-  - bag: 0
-    current: 16
+    current: 0
     dislike_program: []
     email: jcsd@tec.mx
     like_program: []
     max: 9000
   - bag: 0
-    current: 23
-    dislike_program: []
-    email: christian.valdez@tec.mx
-    like_program: []
-    max: 9000
-  - bag: 0
-    current: 23
+    current: 0
     dislike_program: []
     email: c.ochoa@tec.mx
     like_program: []
     max: 9000
   - bag: 0
-    current: 23
+    current: 0
     dislike_program: []
     email: cyn.deleon@tec.mx
     like_program: []
     max: 9000
   - bag: 0
-    current: 23
-    dislike_program: []
-    email: daniela_barragan_m@tec.mx
-    like_program: []
-    max: 9000
-  - bag: 0
-    current: 23
-    dislike_program: []
-    email: dlimonr@tec.mx
-    like_program: []
-    max: 9000
-  - bag: 0
-    current: 22
+    current: 0
     dislike_program: []
     email: iescobed@tec.mx
     like_program: []
     max: 9000
   - bag: 0
-    current: 22
+    current: 0
     dislike_program: []
     email: iris.m@tec.mx
     like_program: []
     max: 9000
   - bag: 0
-    current: 22
+    current: 0
     dislike_program: []
     email: isroma@tec.mx
     like_program: []
     max: 9000
   - bag: 0
-    current: 22
-    dislike_program: []
-    email: isroma@tec.mx
-    like_program: []
-    max: 9000
-  - bag: 0
-    current: 22
+    current: 0
     dislike_program: []
     email: isisneith.reynoso@tec.mx
     like_program: []
     max: 9000
   - bag: 0
-    current: 22
+    current: 0
     dislike_program: []
     email: jmarielz@tec.mx
     like_program: []
     max: 9000
   - bag: 0
-    current: 22
+    current: 0
     dislike_program: []
     email: karredondo@tec.mx
     like_program: []
     max: 9000
   - bag: 0
-    current: 22
-    dislike_program: []
-    email: karredondo@tec.mx
-    like_program: []
-    max: 9000
-  - bag: 0
-    current: 22
+    current: 0
     dislike_program: []
     email: kpina@tec.mx
     like_program: []
     max: 9000
   - bag: 0
-    current: 22
+    current: 0
     dislike_program: []
     email: leonel_lopez@tec.mx
     like_program: []
     max: 9000
   - bag: 0
-    current: 22
+    current: 0
     dislike_program: []
-    email: margarita.godoy@tec.mx
+    email: marycarmen.hernandez@tec.mx
     like_program: []
     max: 9000
   - bag: 0
-    current: 22
+    current: 0
+    dislike_program: []
+    email: marycarmen.hernandez@tec.mx
+    like_program: []
+    max: 9000
+  - bag: 0
+    current: 0
     dislike_program: []
     email: avila.charles@tec.mx
     like_program: []
     max: 9000
   - bag: 0
-    current: 2
+    current: 0
     dislike_program: []
     email: m.ornelas@tec.mx
     like_program: []
     max: 9000
   - bag: 0
-    current: 22
+    current: 0
+    dislike_program: []
+    email: m.ornelas@tec.mx
+    like_program: []
+    max: 9000
+  - bag: 0
+    current: 0
     dislike_program: []
     email: myrna_ocampo@tec.mx
     like_program: []
     max: 9000
   - bag: 0
-    current: 22
+    current: 0
     dislike_program: []
     email: njimenezg@tec.mx
     like_program: []
     max: 9000
   - bag: 0
-    current: 22
-    dislike_program: []
-    email: paola.che@tec.mx
-    like_program: []
-    max: 9000
-  - bag: 0
-    current: 22
+    current: 0
     dislike_program: []
     email: rosa.solis@tec.mx
     like_program: []
     max: 9000
   - bag: 0
-    current: 15
+    current: 0
     dislike_program: []
     email: sarai.chavez@tec.mx
     like_program: []
     max: 9000
   - bag: 0
-    current: 15
+    current: 0
     dislike_program: []
     email: sarai.chavez@tec.mx
     like_program: []
     max: 9000
   - bag: 0
-    current: 22
+    current: 0
     dislike_program: []
     email: vb.perez@tec.mx
     like_program: []
     max: 9000
   - bag: 0
-    current: 22
+    current: 0
     dislike_program: []
     email: veronica.alvarado@tec.mx
     like_program: []
     max: 9000
   - bag: 0
-    current: 15
+    current: 0
     dislike_program: []
     email: montserrat.baena@tec.mx
     like_program: []
     max: 9000
   - bag: 0
-    current: 15
+    current: 0
     dislike_program: []
     email: montserrat.baena@tec.mx
     like_program: []
@@ -919,6 +847,18 @@ Región TLG:
     current: 114
     dislike_program: []
     email: ruben.lopez.e@tec.mx
+    like_program: []
+    max: 9000
+  - bag: 0
+    current: 0
+    dislike_program: []
+    email: ckevingarcia@tec.mx
+    like_program: []
+    max: 9000
+  - bag: 0
+    current: 0
+    dislike_program: []
+    email: emilianod.miranda@tec.mx
     like_program: []
     max: 9000
   filters: []

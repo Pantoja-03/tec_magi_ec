@@ -7,3 +7,4 @@
 tec magi app/resources/catalogos/program_catalogs.pkl
 *.pkl
 *.pyc
+tec magi app/gsuite_api/token.pickle

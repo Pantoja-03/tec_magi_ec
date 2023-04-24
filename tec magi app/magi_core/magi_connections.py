@@ -9,6 +9,9 @@ from dotenv import load_dotenv
 import pytz
 from unidecode import unidecode
 import time
+import numpy as np
+import yaml
+from pathlib import Path
 
 load_dotenv()
 
@@ -97,6 +100,70 @@ def get_base_assignments():
     base_assignments['key'] = base_assignments['owner'].astype(str) + base_assignments['date'].astype(str)
     
     return base_assignments.copy()
+
+
+def read_yaml(file_path: str):
+    if not file_path.endswith('.yml'):
+        file_path += '.yml'
+    f = open(file_path, 'r', encoding='utf-8')
+    res = yaml.load(f.read(), Loader=yaml.FullLoader)
+    f.close()
+    return res
+
+
+def to_yaml(obj, file_path, snapshot=True):
+    if not file_path.endswith('.yml'):
+        file_path += '.yml'
+    path = Path(file_path)
+
+    f = path.open('w', encoding='utf-8')
+    yaml.dump(obj, f, encoding='utf-8', allow_unicode=True)
+    f.close()
+
+
+def get_resume_leads(start_date = '2021-07-01', end_date = None):
+  if end_date is None:
+    end_date = str(end_date)
+  
+  engine = get_engine_db()
+  
+  query = f"""
+      SELECT
+          assignment_date as fecha,
+          year_week as semana,
+          owner_region as region,
+          owner_name as asesor
+      FROM leads
+      WHERE status = 'Cargado' and owner_name <> '' and created_at > '{start_date}' and created_at <= '{end_date}'
+      """
+      
+  engine.dispose()
+  
+  return pd.read_sql(query, engine)
+
+
+def get_cubo_ec(): 
+    return pd.read_csv(
+              r'G:\.shortcut-targets-by-id\11jNJkPFSMwK6AvDuAdiz0e0pfqjRD2fl\01 Procesos\01 Cubo VEC\02 U4P - EC\base.csv',
+              usecols=[
+                'Rol del propietario',
+                'Usuario Activo',
+                'Estatus Integrado',
+                'Periodo',
+                'Sistema origen',
+                'Propietario',
+                'Monto',
+                'Region del asesor',
+                'Fecha de creacion',
+                'Antiguedad',
+                  ],
+              dtype={
+                  'Usuario Activo': np.float64,
+                  'Monto': np.float64,
+                  'Rol del propietario': str,
+                  'Region del asesor': str
+                  }
+            )
 
 
 
