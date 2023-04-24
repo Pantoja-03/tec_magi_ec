@@ -22,8 +22,8 @@ def upload(base: pd.DataFrame, use_bulk):
         
         document_new_leads.document(base)
     
-    except:
-        requests.post(url_teams, json={'text': "Error al documentar las actividades en la carga de los leads U4P"})
+    except Exception as e:
+        requests.post(url_teams, json={'text': f"Error al documentar las actividades en la carga de los leads U4P: \n\n\t{e}"})
     
     
     return base.copy()
