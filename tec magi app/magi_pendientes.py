@@ -28,7 +28,7 @@ def init_log() -> logging.Logger:
     return log
 
 
-print('Magi U4P...')
+print('Magi U4P Pendientes...')
 
 
 #init log
