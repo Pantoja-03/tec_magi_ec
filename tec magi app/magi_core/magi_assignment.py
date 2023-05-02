@@ -106,7 +106,26 @@ def assignment(base : pd.DataFrame, sf_leads : pd.DataFrame):
         print("Asignaciones especiales encontradas:")
         print(base['rule_name'].value_counts())
         
+        
+        
     base = base[base['owner_id'].isin([np.nan, '', None])].copy()
+    # base['direct_repeat_lead'] = base['email_corrected'].isin(base_direct['email_corrected'])
+    
+    # base_direct_repeat = base[(base['direct_repeat_lead'])].copy()
+    # base = base[(base['direct_repeat_lead'] == False)].copy()
+    
+    
+    # #repeat in direct assignments
+    # if len(base_direct_repeat) > 0:
+    #     base_current = base_direct[['email_corrected','owner', 'queue_id']].drop_duplicates('email_corrected').set_index('email_corrected')           
+    #     base_direct_repeat['owner'] = base_direct_repeat['email_corrected'].map(base_current['owner'])
+    #     base_direct_repeat['assignment_type'] = 'Asignacion por reincidencia'
+    #     base_direct_repeat['original_lead'] = 0
+        
+    #     base_direct = pd.concat([base_direct, base_direct_repeat], sort=False)
+        
+    #     del base_current
+    
     
     
     #bases recidivism

@@ -281,6 +281,12 @@ Región Internacional:
     email: sandra.melol@tec.mx
     like_program: []
     max: 9000
+  - bag: 0
+    current: 0
+    dislike_program: []
+    email: jesi.maldonado@tec.mx
+    like_program: []
+    max: 9000
   filters: []
   id: faa03cd2-d7be-4afb-baeb-33b055af2293
   next_asesor: 17
@@ -577,6 +583,12 @@ Región Nacional:
   - bag: 0
     current: 0
     dislike_program: []
+    email: alex.hernandez@tec.mx
+    like_program: []
+    max: 9000
+  - bag: 0
+    current: 0
+    dislike_program: []
     email: aroblesv@tec.mx
     like_program: []
     max: 9000
@@ -584,12 +596,6 @@ Región Nacional:
     current: 0
     dislike_program: []
     email: abolanos@tec.mx
-    like_program: []
-    max: 9000
-  - bag: 0
-    current: 0
-    dislike_program: []
-    email: anamel.farrera@tec.mx
     like_program: []
     max: 9000
   - bag: 0
@@ -608,6 +614,12 @@ Región Nacional:
     current: 0
     dislike_program: []
     email: cyn.deleon@tec.mx
+    like_program: []
+    max: 9000
+  - bag: 0
+    current: 0
+    dislike_program: []
+    email: daniela_barragan_m@tec.mx
     like_program: []
     max: 9000
   - bag: 0
@@ -661,7 +673,7 @@ Región Nacional:
   - bag: 0
     current: 0
     dislike_program: []
-    email: marycarmen.hernandez@tec.mx
+    email: luis_tenorio@tec.mx
     like_program: []
     max: 9000
   - bag: 0
@@ -716,18 +728,6 @@ Región Nacional:
     current: 0
     dislike_program: []
     email: sarai.chavez@tec.mx
-    like_program: []
-    max: 9000
-  - bag: 0
-    current: 0
-    dislike_program: []
-    email: vb.perez@tec.mx
-    like_program: []
-    max: 9000
-  - bag: 0
-    current: 0
-    dislike_program: []
-    email: veronica.alvarado@tec.mx
     like_program: []
     max: 9000
   - bag: 0
@@ -859,6 +859,12 @@ Región TLG:
     current: 0
     dislike_program: []
     email: emilianod.miranda@tec.mx
+    like_program: []
+    max: 9000
+  - bag: 0
+    current: 0
+    dislike_program: []
+    email: n.hernandez@tec.mx
     like_program: []
     max: 9000
   filters: []
