@@ -42,7 +42,7 @@ start_time = magi_conn.get_datetime()
 try:
     log.info(f'Obteniendo leads a procesar - {magi_conn.get_datetime()}')
     base = magi_conn.get_iup_leads("Pendiente en SF' or (status = 'Cargado' and remote_id = '') or status = 'Invalido' or status = 'Procesando")
-    base = base[(base['created_at'] > (magi_conn.get_datetime() - timedelta(days=2))) & (base['created_at'] < (magi_conn.get_datetime() - timedelta(minutes=10)))]
+    base = base[(base['created_at'] > (magi_conn.get_datetime() - timedelta(days=5))) & (base['created_at'] < (magi_conn.get_datetime() - timedelta(minutes=10)))]
     base = base.fillna('')
 
     #verify base

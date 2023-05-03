@@ -55,9 +55,9 @@ def assignment(base : pd.DataFrame, sf_leads : pd.DataFrame):
     #get users
     users = conn.get_sf_users()
     users_r = users[users['Reincidentes'] == '1'].drop_duplicates("Id Salesforce").set_index("Id Salesforce")
-    users_a = list(users['Correo del asesor'][(users['Recibe leads'] == "1") & (users['Activo'] == "1")])
     users_on = list(users['Correo del asesor'][(users['Activo'] == "1")])
-    users = users[users['Activo'] == '1'].drop_duplicates("Correo del asesor").set_index("Correo del asesor")
+    user_c = users[users['Activo'] == '1'].drop_duplicates("Correo del asesor").set_index("Correo del asesor")
+    users_a = list(users['Correo del asesor'][(users['Recibe leads'] == "1") & (users['Activo'] == "1")])
 
     
     #get special rules
@@ -99,6 +99,8 @@ def assignment(base : pd.DataFrame, sf_leads : pd.DataFrame):
     base_direct = base[~base['owner_id'].isin([np.nan, '', None])].copy()
     base_direct['assignment_type'] = 'Asignacion por regla especial'
     base_direct['validation_type'] = 'Lead no validado'
+    base_direct['assignment_date'] = base_direct['processing_date']
+
     
     if len(base_direct) > 0:
         #print specials rule
@@ -173,12 +175,29 @@ def assignment(base : pd.DataFrame, sf_leads : pd.DataFrame):
         base = pd.concat([base, base_nacional], ignore_index=False, sort=False)
         del base_nacional
 
+
+
         #run assignment
+        list_users = []
         reglas = ds.read_yaml("./assignment/reglas_carrusel.yml")
+        users_asignator = conn.get_users_asignator()
         
-        base, reglas = carrusel.asignador_regional(base, reglas, users_on, users_a)
+        if len(users_asignator) > 0:
+            rule_15 = conn.get_users_15m()
+            users['Activo Asignator'] = users['Correo del asesor'].isin(users_asignator)
+            users['Inactivo por asignator'] = users['Correo del asesor'].isin(rule_15)
+            users_asignator = list(users['Correo del asesor'][(users['Recibe leads'] == "1") & (users['Activo Asignator'] & (~users['Inactivo por asignator']))])
+            users_a = list(users['Correo del asesor'][(users['Recibe leads'] == "1") & (users['Activo'] == "1") & (users['Activo Asignator'] == False)])
+            
+        
+        list_users.append(users_asignator)    
+        list_users.append(users_a)
+        list_users.append(users_on)    
+        
+        base, reglas = carrusel.asignador_regional(base, reglas, list_users)
         ds.to_yaml(reglas, "./assignment/reglas_carrusel.yml")
            
+        
         
         asesores = pd.DataFrame()
         for region in ['Región Nacional']:
@@ -190,7 +209,7 @@ def assignment(base : pd.DataFrame, sf_leads : pd.DataFrame):
         asesores = asesores.set_index('email')
         
         base['repeat_owner'] = base['owner'].map(asesores['repeat'])
-        base['assignment_type'] = base.apply(lambda row: row['assignment_type'] + ' x' + str(row['repeat_owner']).replace('.0','') if (str(row['repeat_owner']) != 'nan') & (row['assignment_type'] != 'Asignacion por regla especial') else row['assignment_type'], axis=1)
+        base['assignment_type'] = base.apply(lambda row: row['assignment_type'] + ' x' + str(row['repeat_owner']).replace('.0','') if (str(row['repeat_owner']) != 'nan') & (row['assignment_type'] == 'Asignacion por carrusel - offline') else row['assignment_type'], axis=1)
 
 
         #assignment repeats
@@ -203,7 +222,7 @@ def assignment(base : pd.DataFrame, sf_leads : pd.DataFrame):
         #concat base and base_repeat
         base = pd.concat([base, base_repeat], ignore_index=True, sort=False)
         
-        base["owner_id"] = base['owner'].map(users['Id Salesforce'])        
+        base["owner_id"] = base['owner'].map(user_c['Id Salesforce'])        
         base['region'] = base['region_original']
         base['validation_type'] = 'Lead no validado'
         base['assignment_date'] = base['processing_date']
@@ -213,8 +232,8 @@ def assignment(base : pd.DataFrame, sf_leads : pd.DataFrame):
     #return base
     base = pd.concat([base, base_no_assignment, base_recidivism, base_direct], ignore_index=True, sort=False)
     
-    base["owner_region"] = base['owner'].map(users['Región'])
-    base["owner_name"] = base['owner'].map(users['Nombre corregido'])
+    base["owner_region"] = base['owner'].map(user_c['Región'])
+    base["owner_name"] = base['owner'].map(user_c['Nombre corregido'])
        
     
     return base.copy()

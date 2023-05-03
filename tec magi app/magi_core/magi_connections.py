@@ -12,6 +12,7 @@ import time
 import numpy as np
 import yaml
 from pathlib import Path
+import requests
 
 load_dotenv()
 
@@ -520,3 +521,31 @@ def get_sf_users():
     users = gsuite.get_sheet_data("1KS0aC7HmemmLPqkqzFegQZufMT2_41hyyIHcCVKUtcI", "Usuarios!A:I")
     
     return users.copy()
+
+
+def get_users_asignator():
+    url = "https://asignator.tecdap.net/api/v1/c_sessions"
+    payload={}
+    headers = {'Authorization': 'Bearer 643f0ee9c363f005c736e540'}
+    response = requests.request("GET", url, headers=headers, data=payload)
+    asesores_activos = list(set(response.text.replace('[','').replace('"','').replace(']','').split(',')))
+    
+    return asesores_activos
+
+
+def get_users_15m(fecha = get_datetime()):
+    query = f"""
+        SELECT owner
+        From leads
+        Where assignment_type = "Asignacion por carrusel - online" and processing_date > DATE_SUB("{fecha}", INTERVAL 16 MINUTE)
+    """
+    
+    res = read_sql(query)
+    
+    if len(res) > 0:
+        res = list(set(res['owner']))
+    
+        return res
+    
+    else: 
+        return [] 

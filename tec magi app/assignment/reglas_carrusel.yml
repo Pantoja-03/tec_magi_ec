@@ -60,7 +60,7 @@ Región ECL:
     like_program: []
     max: 9000
   - bag: 0
-    current: 529
+    current: 530
     dislike_program: []
     email: castro.juan@tec.mx
     like_program: []
@@ -91,7 +91,7 @@ Región ECL:
     max: 9000
   filters: []
   id: 1d795b1c-9542-4977-98f6-36602ade1158
-  next_asesor: 7
+  next_asesor: 8
 Región EGADE:
 - asesores: []
   filters: []
@@ -174,25 +174,25 @@ Región Estratégicos:
 Región Internacional:
 - asesores:
   - bag: 0
-    current: 3752
+    current: 3753
     dislike_program: []
     email: elizabeth.naula@tec.mx
     like_program: []
     max: 9000
   - bag: 0
-    current: 2282
+    current: 2283
     dislike_program: []
     email: jose.farfan@tec.mx
     like_program: []
     max: 9000
   - bag: 0
-    current: 3210
+    current: 3211
     dislike_program: []
     email: javier.suarez@tec.mx
     like_program: []
     max: 9000
   - bag: 0
-    current: 3119
+    current: 3120
     dislike_program: []
     email: jhanina.santillan@tec.mx
     like_program: []
@@ -276,20 +276,20 @@ Región Internacional:
     like_program: []
     max: 9000
   - bag: 0
-    current: 83
+    current: 84
     dislike_program: []
     email: sandra.melol@tec.mx
     like_program: []
     max: 9000
   - bag: 0
-    current: 0
+    current: 1
     dislike_program: []
     email: jesi.maldonado@tec.mx
     like_program: []
     max: 9000
   filters: []
   id: faa03cd2-d7be-4afb-baeb-33b055af2293
-  next_asesor: 17
+  next_asesor: 11
 Región Nacional:
 - asesores:
   - bag: 0
@@ -689,7 +689,7 @@ Región Nacional:
     like_program: []
     max: 9000
   - bag: 0
-    current: 0
+    current: 1
     dislike_program: []
     email: m.ornelas@tec.mx
     like_program: []
@@ -744,7 +744,7 @@ Región Nacional:
     max: 9000
   filters: []
   id: a48c0d4f-3b6b-41e0-af06-85f51b99ce07
-  next_asesor: 66
+  next_asesor: 34
 Región TLG:
 - asesores:
   - bag: 0
@@ -869,4 +869,4 @@ Región TLG:
     max: 9000
   filters: []
   id: 1d795b1c-9542-4977-98f6-36602ade0003
-  next_asesor: 1
+  next_asesor: 6
