@@ -43,7 +43,6 @@ def document_task(lead, sf):
         time.sleep(1)
         try:
             return sf.Task.create(lead)
-            break
         
         except:
             pass
@@ -87,10 +86,13 @@ def get_message_document(original_date, activity_date):
 
 
 
-
-def get_base_document(new_base: pd.DataFrame):
+def get_activity_time(fecha, is_offline = ''):
     minutos = 10
-    activity_date = datetime.now() + timedelta(minutes = minutos)
+    activity_date = fecha + timedelta(minutes = minutos)
+    
+    
+    if is_offline != 'Asignacion por carrusel - online':
+        activity_date = activity_date + timedelta(hours = 2)
     
     if ((activity_date.hour == 19) & (activity_date.minute > 50)) or ((activity_date.hour >= 20) or (activity_date.hour < 9)):
         if (activity_date.hour >= 20):
@@ -103,6 +105,14 @@ def get_base_document(new_base: pd.DataFrame):
         activity_date = activity_date + timedelta(days = 1)
     
     
+    return activity_date
+        
+
+
+def get_base_document(new_base: pd.DataFrame):
+    
+    
+    new_base['ActivityDate'] = new_base.apply(lambda row: get_activity_time(row['processing_date'], row['assignment_type'] ),axis=1)
     
     new_base['WhoId'] = new_base['sf_id'] 
     new_base['Priority'] = 'Alta'
@@ -112,12 +122,12 @@ def get_base_document(new_base: pd.DataFrame):
     
     #new_base['Subject'] = 'Lead en espera de ser contactado'
     new_base['TaskSubtype'] = 'Task'
-    new_base['ActivityDate'] = str(activity_date.date())
     new_base['OwnerId'] = new_base['owner_id']
     #new_base['ReminderDateTime'] = str(activity_date)[:10] + "T" + str(activity_date)[11:19] + "-06:00"
     
     
-    new_base['Description'] = new_base['created_at'].apply(lambda row: get_message_document(row,activity_date) ) 
+    new_base['Description'] = new_base.apply(lambda row: get_message_document(row['created_at'], row['ActivityDate']) ,axis=1) 
+    new_base['ActivityDate'] = new_base['ActivityDate'].astype(str).str[:10]
     
     new_base = new_base[[
         'WhoId',
@@ -150,11 +160,11 @@ def document(base: pd.DataFrame):
         new_base = get_base_document(new_base)
         
         #one to one
+        print('Documentado actividades de nuevos leads...')
         sf = conn.retry_conect_sf()
         for lead in tqdm(new_base):
             try:
-                document_task(sf, lead)
+                sf.Task.create(lead)
             except:
                 pass
         
-        print('Nuevos leads documentados...')
