@@ -16,7 +16,7 @@ class Carrusel:
 
     def next(self):
         if len(self.asesores_validos) < 1 :
-            return False
+            return False, None
         
         asesor = self.asesores[self.current]["email"]
         res = False
