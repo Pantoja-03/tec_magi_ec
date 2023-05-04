@@ -191,7 +191,7 @@ def update_processing_leads(leads_id : list):
         return False
 
 
-def get_iup_leads(status = 'created'):
+def get_iup_leads(status = 'created', pendientes = False):
     
     try:
         leads_iup = """
@@ -205,7 +205,8 @@ def get_iup_leads(status = 'created'):
             
         base['processing_date'] = get_datetime()
             
-        update_processing_leads(list(base['id'].unique()))
+        if pendientes == False:
+            update_processing_leads(list(base['id'].unique()))
     
         return base.copy()
 

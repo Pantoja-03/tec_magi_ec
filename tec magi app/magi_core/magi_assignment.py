@@ -180,16 +180,16 @@ def assignment(base : pd.DataFrame, sf_leads : pd.DataFrame):
         #run assignment
         list_users = []
         reglas = ds.read_yaml("./assignment/reglas_carrusel.yml")
-        # users_asignator = conn.get_users_asignator()
-        users_asignator = []
+        users_asignator = conn.get_users_asignator()
+        #users_asignator = []
         
         
-        # if len(users_asignator) > 0:
-        #     rule_15 = conn.get_users_15m()
-        #     users['Activo Asignator'] = users['Correo del asesor'].isin(users_asignator)
-        #     users['Inactivo por asignator'] = users['Correo del asesor'].isin(rule_15)
-        #     users_asignator = list(users['Correo del asesor'][(users['Recibe leads'] == "1") & (users['Activo Asignator'] & (~users['Inactivo por asignator']))])
-        #     users_a = list(users['Correo del asesor'][(users['Recibe leads'] == "1") & (users['Activo'] == "1") & (users['Activo Asignator'] == False)])
+        if len(users_asignator) > 0:
+            rule_15 = conn.get_users_15m()
+            users['Activo Asignator'] = users['Correo del asesor'].isin(users_asignator)
+            users['Inactivo por asignator'] = users['Correo del asesor'].isin(rule_15)
+            users_asignator = list(users['Correo del asesor'][(users['Recibe leads'] == "1") & (users['Activo Asignator'] & (~users['Inactivo por asignator']))])
+            users_a = list(users['Correo del asesor'][(users['Recibe leads'] == "1") & (users['Activo'] == "1") & (users['Activo Asignator'] == False)])
             
         
         list_users.append(users_asignator)    
