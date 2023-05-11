@@ -190,9 +190,9 @@ def assignment(base : pd.DataFrame, sf_leads : pd.DataFrame):
         
         
         if len(users_asignator) > 0:
-            rule_15 = conn.get_users_15m()
+            rule_60 = conn.get_users_60m()
             users['Activo Asignator'] = users['Correo del asesor'].isin(users_asignator)
-            users['Inactivo por asignator'] = users['Correo del asesor'].isin(rule_15)
+            users['Inactivo por asignator'] = users['Correo del asesor'].isin(rule_60)
             users_asignator = list(users['Correo del asesor'][(users['Recibe leads'] == "1") & (users['Activo Asignator'] & (~users['Inactivo por asignator']))])
             users_a = list(users['Correo del asesor'][(users['Recibe leads'] == "1") & (users['Activo'] == "1") & (users['Activo Asignator'] == False)])
             

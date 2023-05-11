@@ -534,11 +534,11 @@ def get_users_asignator():
     return asesores_activos
 
 
-def get_users_15m(fecha = get_datetime()):
+def get_users_60m(fecha = get_datetime()):
     query = f"""
         SELECT owner
         From leads
-        Where assignment_type = "Asignacion por carrusel - online" and processing_date > DATE_SUB("{fecha}", INTERVAL 16 MINUTE)
+        Where assignment_type = "Asignacion por carrusel - online" and processing_date > DATE_SUB("{fecha}", INTERVAL 61 MINUTE)
     """
     
     res = read_sql(query)
