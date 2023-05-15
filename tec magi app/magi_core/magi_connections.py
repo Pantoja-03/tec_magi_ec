@@ -56,7 +56,7 @@ def get_conn_db():
             user = os.getenv('DB_USERNAME'),
             passwd = os.getenv('DB_PASSWORD'),
             db = os.getenv('DB_DATABASE'), 
-            connect_timeout = 30
+            connect_timeout = 40
             )
        
     return conn
@@ -182,13 +182,15 @@ def update_processing_leads(leads_id : list):
         cursor = conn.cursor()
         cursor.execute(query)
         conn.commit()
-        cursor.close()
-        conn.close()
 
         return True
         
     except:
         return False
+    
+    finally:
+       cursor.close()
+       conn.close()
 
 
 def get_iup_leads(status = 'created', pendientes = False):
