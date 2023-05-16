@@ -16,7 +16,7 @@ def init_log() -> logging.Logger:
     logging.basicConfig(level=logging.INFO)
     log = logging.getLogger('Carga de datos UP4')
 
-    handler = logging.FileHandler(fr'./resources/logs/carga_datos_up4 {magi_conn.get_datetime().date()}.log')    
+    handler = logging.FileHandler(fr'./resources/logs/carga_datos_up4_{magi_conn.get_datetime().date()}.log')    
     logging.getLogger('googleapiclient.discovery_cache').setLevel(logging.ERROR)
     
     handler.setLevel(logging.INFO)
