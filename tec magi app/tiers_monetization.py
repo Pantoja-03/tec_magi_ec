@@ -75,6 +75,8 @@ asesores = asesores[
       (~pd.isna(asesores['region'])) & 
       (asesores['region'] != 'Región en Línea') &
       #(asesores['region'] != 'Región Internacional') &
+      (asesores['region'] != 'Región TLG') &
+      (asesores['region'] != 'Región Programas Estrategicos') &
       (asesores['index'] != 'Karen Duarte')
     ].copy()
 

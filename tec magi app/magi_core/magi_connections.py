@@ -135,7 +135,11 @@ def get_resume_leads(start_date = '2021-07-01', end_date = None):
           owner_region as region,
           owner_name as asesor
       FROM leads
-      WHERE status = 'Cargado' and owner_name <> '' and created_at > '{start_date}' and created_at <= '{end_date}'
+      WHERE status = 'Cargado' and 
+          assignment_type in ('Asignacion por carrusel', 'Asignacion por carrusel x2', 'Asignacion por carrusel x3', 'Asignacion por carrusel - offline', 'Asignacion por carrusel - offline x2', 'Asignacion por carrusel - offline x3') 
+          and owner_name <> '' 
+          and created_at > '{start_date}' 
+          and created_at <= '{end_date}'
       """
       
   engine.dispose()
