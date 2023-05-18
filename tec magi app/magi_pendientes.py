@@ -70,7 +70,7 @@ try:
 
 
 except Exception as e:
-    log.error(f'Ocurrio un error la obtener los leads de iup - {e} - {magi_conn.get_datetime()}')
+    log.error(f'Ocurrio un error al tratar de cargar los leads pendientes - {e} - {magi_conn.get_datetime()}')
 
 
 

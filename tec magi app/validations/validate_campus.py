@@ -38,12 +38,13 @@ def validate(base: pd.DataFrame):
     
     #parchamos a la region latam
     base['es latam?'] = False
-    base['es latam?'] = base.apply(lambda row: True if (row['loaded_phone'][:2] not in ['52', ''])  else False,axis=1)
+    base['es latam?'] = base.apply(lambda row: True if (row['loaded_phone'][:2] not in ['52', '']) and (row['modality'] != 'Learning Gate')  else False,axis=1)
     
     #base.loc[base['es latam?'], 'loaded_campus'] = "Campus LATAM"
     #base.loc[base['es latam?'], 'VEC_CampusSede__c'] = "0013f000002GaOA"
     base.loc[base['es latam?'], 'region'] = "Región Internacional"
     base.loc[base['es latam?'], 'valid_campus'] = True
+
     
     #Validate campus
     base['valid_campus'] = ~base['loaded_campus'].isin([np.nan, ""])
