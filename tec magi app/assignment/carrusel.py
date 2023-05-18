@@ -100,7 +100,8 @@ def asignador_regional(df: pd.DataFrame, reglas: dict, list_users = []):
 
                 while owner == False:   
                     try:
-                        carrusel = Carrusel(next_asesor, asesores, list_users[iter_users + 1], False)
+                        iter_users += 1
+                        carrusel = Carrusel(next_asesor, asesores, list_users[iter_users], False)
                     except:
                         raise Exception(f"No hay asesores activos para la regla: {queue_id}")
                         
