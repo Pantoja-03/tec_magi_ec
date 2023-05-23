@@ -1,5 +1,6 @@
 import pandas as pd
 from datetime import date
+from magi_core import magi_connections as magi_conn
 
 def add_comments(phone, valid_email, valid_phone, valid_program, valid_campus, status, test, email_black_list, phone_black_list):
     errors = []
@@ -52,7 +53,7 @@ def final_format(base: pd.DataFrame):
     
     base.sort_values(['original_date'],ascending=[True] ,inplace=True)
     base['status'] = base['status'].replace('Contacto Nuevo', 'Cargado')
-    base.loc[base.status == 'Cargado', 'upload_date'] = date.today()
+    base.loc[base.status == 'Cargado', 'upload_date'] = magi_conn.get_datetime().date()
     base = base.fillna("")
     
     base['remote_id'] = base['sf_id']
