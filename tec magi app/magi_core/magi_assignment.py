@@ -156,6 +156,9 @@ def assignment(base : pd.DataFrame, sf_leads : pd.DataFrame):
         base['region'] = base.apply(lambda row: "Región EGADE" if (str(row['loaded_program']).find('(Executive Education)') > 0) else row['region'], axis=1)
         base['region'] = base.apply(lambda row: "Región Especial" if not pd.isna(row['rule_name']) else row['region'], axis=1)
         
+        base['region'] = base.apply(lambda row: "Región TLG" if row['rule_name'] == 'Asignacion Especial TLG' else row['region'], axis=1)
+        
+        
         #get duplicates
         base['repeat_lead'] = base['email_corrected'].duplicated()
         
