@@ -33,12 +33,12 @@ def resolve_filter(determinante, no_determinante):
     
 
 def get_region_probabilty():
-    n = round(random.random(), 3)
+    n = round(random.random(), 2)
     
-    if n < .075:
-        return "Región Internacional"
-    if n < .11:
+    if n < .1:
         return "Región TLG"
+    if n < .2:
+        return "Región ECL"
     else:
         return "Región Nacional" 
     

@@ -13,6 +13,7 @@ import numpy as np
 import yaml
 from pathlib import Path
 import requests
+import smtplib
 
 load_dotenv()
 
@@ -40,6 +41,7 @@ def retry_conect_sf():
 
 def get_url_teams():
     return os.getenv('URL_TEAMS')
+
 
 def read_soql_sf(soql):
     sf = get_conn_sf()
@@ -88,6 +90,18 @@ def read_sql(query):
     res = pd.read_sql(query, engine)
     
     return res.copy()
+
+
+
+def get_mailer():
+    s = smtplib.SMTP(host = os.getenv('MAIL_HOST'), port = os.getenv('MAIL_PORT'))
+    
+    s.starttls()
+    
+    s.login(os.getenv('MAIL_USERNAME'), os.getenv('MAIL_PASSWORD'))
+    
+    return s 
+
 
 
 def get_base_assignments():
