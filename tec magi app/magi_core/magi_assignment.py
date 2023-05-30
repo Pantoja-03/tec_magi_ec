@@ -167,6 +167,8 @@ def assignment(base : pd.DataFrame, sf_leads : pd.DataFrame):
         
         # assginment by probabilities
         base['assignment_type'] = 'Asignacion por carrusel'
+        base['new_assignment_type'] = None
+        
         base_nacional = base[(base['region'] == 'Región Nacional') & (base['modality'].isin(['Live', 'Aula Virtual', 'Presencial']))].copy()
         base = base[~base['id'].isin(base_nacional['id'])].copy()
         
