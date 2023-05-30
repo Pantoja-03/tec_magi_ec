@@ -173,7 +173,7 @@ def assignment(base : pd.DataFrame, sf_leads : pd.DataFrame):
         random.seed(10)
         base_nacional['region'] = base_nacional['region'].apply(lambda x: get_region_probabilty() )
         
-        base_nacional.loc[base_nacional.region != 'Región Nacional', 'assignment_type'] = 'Asignacion carrusel especial probabilidad'
+        base_nacional.loc[base_nacional.region != 'Región Nacional', 'new_assignment_type'] = 'Asignacion carrusel especial probabilidad'
         
         base = pd.concat([base, base_nacional], ignore_index=False, sort=False)
         del base_nacional
@@ -238,6 +238,8 @@ def assignment(base : pd.DataFrame, sf_leads : pd.DataFrame):
         base['assignment_date'] = base['processing_date']
         base['owner_assignment'] = base['owner']
         
+        # add assignments for probavbilties
+        base.loc[ ~ pd.isna(base.new_assignment_type), 'assignment_type'] = base.loc[ ~ pd.isna(base.new_assignment_type), 'new_assignment_type']
         
     #return base
     base = pd.concat([base, base_no_assignment, base_recidivism, base_direct], ignore_index=True, sort=False)
