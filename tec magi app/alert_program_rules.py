@@ -5,8 +5,7 @@ Created on Mon May 29 18:43:47 2023
 @author: segur
 """
 
-import pandas as pd
-from gsuite_api import gsuite
+
 from magi_core import magi_connections
 from email.mime.multipart import MIMEMultipart
 from email.mime.text import MIMEText
