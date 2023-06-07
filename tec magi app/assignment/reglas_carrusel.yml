@@ -289,7 +289,7 @@ Región Internacional:
     max: 9000
   filters: []
   id: faa03cd2-d7be-4afb-baeb-33b055af2293
-  next_asesor: 15
+  next_asesor: 16
 Región Nacional:
 - asesores:
   - bag: 0
@@ -885,6 +885,12 @@ Región TLG:
     email: n.hernandez@tec.mx
     like_program: []
     max: 9000
+  - bag: 0
+    current: 0
+    dislike_program: []
+    email: jess.galvan@tec.mx
+    like_program: []
+    max: 9000
   filters: []
   id: 1d795b1c-9542-4977-98f6-36602ade0003
-  next_asesor: 16
+  next_asesor: 4
