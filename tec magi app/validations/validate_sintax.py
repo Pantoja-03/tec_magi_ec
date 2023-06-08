@@ -145,6 +145,8 @@ def format_phone(phone):
         phone = phone[3:]
     if phone[:2] == '52':
         phone = phone[2:]
+    if phone[:5] == '52044':
+        phone = phone[5:]
         
         
     phone = phone[-15:]
