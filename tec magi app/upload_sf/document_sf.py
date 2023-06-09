@@ -82,7 +82,7 @@ def get_base_SI(base_sesiones: pd.DataFrame):
     base_sesiones['Description'] = "Este lead dejo sus datos en la convocatoria: \n" + base_sesiones['conference']
     base_sesiones['RecordTypeId'] = '01241000000yvXXAAY'
     base_sesiones['Status'] = 'Completado'
-    base_sesiones['Subject'] = 'Convocatoria'
+    base_sesiones['Subject'] = 'Activacion'
     base_sesiones['TaskSubtype'] = 'Task'
     
     base_sesiones = base_sesiones[[
@@ -174,10 +174,10 @@ def document(base: pd.DataFrame):
                     sesion['WhatId'] = sesion.pop('WhoId')
                     sf.Task.create(sesion)
                 except:
-                    print("No se pudieorn crear las actividades de la convocatorias")
+                    print("No se pudieorn crear las actividades de la activaciones")
 
         
-        print('Documented convocatories')
+        print('Documented activations')
     
   
     if len(base_exatec) > 0:
