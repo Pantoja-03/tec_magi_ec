@@ -558,7 +558,7 @@ def get_users_60m(fecha = get_datetime()):
     query = f"""
         SELECT owner
         From leads
-        Where assignment_type = "Asignacion por carrusel - online" and processing_date > DATE_SUB("{fecha}", INTERVAL 61 MINUTE)
+        Where assignment_type = "Asignacion por carrusel - online" and processing_date > DATE_SUB("{fecha}", INTERVAL 31 MINUTE)
     """
     
     res = read_sql(query)
