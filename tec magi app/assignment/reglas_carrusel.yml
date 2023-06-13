@@ -91,7 +91,7 @@ Región ECL:
     max: 9000
   filters: []
   id: 1d795b1c-9542-4977-98f6-36602ade1158
-  next_asesor: 2
+  next_asesor: 10
 Región EGADE:
 - asesores: []
   filters: []
@@ -289,7 +289,7 @@ Región Internacional:
     max: 9000
   filters: []
   id: faa03cd2-d7be-4afb-baeb-33b055af2293
-  next_asesor: 16
+  next_asesor: 2
 Región Nacional:
 - asesores:
   - bag: 0
@@ -569,12 +569,6 @@ Región Nacional:
     like_program: []
     max: 9000
   - bag: 0
-    current: 179
-    dislike_program: []
-    email: daniel_najera@tec.mx
-    like_program: []
-    max: 9000
-  - bag: 0
     current: 0
     dislike_program: []
     email: gerardo.salazarl@tec.mx
@@ -601,13 +595,7 @@ Región Nacional:
   - bag: 0
     current: 0
     dislike_program: []
-    email: alberto.mg@tec.mx
-    like_program: []
-    max: 9000
-  - bag: 0
-    current: 0
-    dislike_program: []
-    email: alberto.mg@tec.mx
+    email: abolanos@tec.mx
     like_program: []
     max: 9000
   - bag: 0
@@ -619,13 +607,13 @@ Región Nacional:
   - bag: 0
     current: 0
     dislike_program: []
-    email: abolanos@tec.mx
+    email: berelopez.a@tec.mx
     like_program: []
     max: 9000
   - bag: 0
     current: 0
     dislike_program: []
-    email: jcsd@tec.mx
+    email: berelopez.a@tec.mx
     like_program: []
     max: 9000
   - bag: 0
@@ -643,13 +631,13 @@ Región Nacional:
   - bag: 0
     current: 0
     dislike_program: []
-    email: gerardo.salazarl@tec.mx
+    email: daniela_barragan_m@tec.mx
     like_program: []
     max: 9000
   - bag: 0
     current: 0
     dislike_program: []
-    email: gerardo.salazarl@tec.mx
+    email: daniela_barragan_m@tec.mx
     like_program: []
     max: 9000
   - bag: 0
@@ -673,19 +661,25 @@ Región Nacional:
   - bag: 0
     current: 0
     dislike_program: []
+    email: isroma@tec.mx
+    like_program: []
+    max: 9000
+  - bag: 0
+    current: 0
+    dislike_program: []
+    email: jcsd@tec.mx
+    like_program: []
+    max: 9000
+  - bag: 0
+    current: 0
+    dislike_program: []
     email: jmarielz@tec.mx
     like_program: []
     max: 9000
   - bag: 0
     current: 0
     dislike_program: []
-    email: jonathan.zam@tec.mx
-    like_program: []
-    max: 9000
-  - bag: 0
-    current: 0
-    dislike_program: []
-    email: jonathan.zam@tec.mx
+    email: karredondo@tec.mx
     like_program: []
     max: 9000
   - bag: 0
@@ -715,19 +709,25 @@ Región Nacional:
   - bag: 0
     current: 0
     dislike_program: []
-    email: berelopez.a@tec.mx
+    email: margarita.godoy@tec.mx
     like_program: []
     max: 9000
   - bag: 0
     current: 0
     dislike_program: []
-    email: berelopez.a@tec.mx
+    email: margarita.godoy@tec.mx
     like_program: []
     max: 9000
   - bag: 0
     current: 0
     dislike_program: []
-    email: m.ornelas@tec.mx
+    email: miriam_mtz_mont@tec.mx
+    like_program: []
+    max: 9000
+  - bag: 0
+    current: 0
+    dislike_program: []
+    email: miriam_mtz_mont@tec.mx
     like_program: []
     max: 9000
   - bag: 0
@@ -762,7 +762,7 @@ Región Nacional:
     max: 9000
   filters: []
   id: a48c0d4f-3b6b-41e0-af06-85f51b99ce07
-  next_asesor: 39
+  next_asesor: 50
 Región TLG:
 - asesores:
   - bag: 0
@@ -893,4 +893,4 @@ Región TLG:
     max: 9000
   filters: []
   id: 1d795b1c-9542-4977-98f6-36602ade0003
-  next_asesor: 4
+  next_asesor: 18
