@@ -188,7 +188,7 @@ def assignment(base : pd.DataFrame, sf_leads : pd.DataFrame):
         
         hora = conn.get_datetime().hour
         
-        if hora >= 8 and hora <= 20:
+        if hora >= 8 and hora < 20:
             users_asignator = conn.get_users_asignator()
         else:
             users_asignator = []

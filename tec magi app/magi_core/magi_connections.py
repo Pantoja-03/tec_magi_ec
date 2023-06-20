@@ -14,6 +14,7 @@ import yaml
 from pathlib import Path
 import requests
 import smtplib
+from glob import glob
 
 load_dotenv()
 
@@ -570,3 +571,92 @@ def get_users_60m(fecha = get_datetime()):
     
     else: 
         return [] 
+    
+
+def format_final_number(number):
+    while len(number) < 4:
+        number = "0" + number
+
+    return number
+
+def get_mx_plan_marcacion():
+    path = r"resources/mx_plan_marcacion/"
+
+    mx_plan_marcacion = pd.read_csv(glob(path + "csv/*.csv")[-1], index_col=False)
+
+    mx_plan_marcacion[' NUMERACION_INICIAL'] = mx_plan_marcacion.apply(lambda row: format_final_number(str(row[' NUMERACION_INICIAL'])),axis=1)
+    mx_plan_marcacion[' NUMERACION_FINAL'] = mx_plan_marcacion.apply(lambda row: format_final_number(str(row[' NUMERACION_FINAL'])),axis=1)    
+    
+    mx_plan_marcacion['IX'] = mx_plan_marcacion.apply(lambda row: str(row[' NIR']) + str(row[' SERIE']),axis=1)
+    mx_plan_marcacion['START'] = mx_plan_marcacion.apply(lambda row: str(row[' NIR']) + str(row[' SERIE']) + str(row[' NUMERACION_INICIAL']),axis=1)
+    mx_plan_marcacion['END'] = mx_plan_marcacion.apply(lambda row: str(row[' NIR']) + str(row[' SERIE']) + str(row[' NUMERACION_FINAL']),axis=1)
+
+    mx_plan_marcacion.rename(columns={' ESTADO':'ESTADO',' MUNICIPIO':'MUNICIPIO',' NIR':'LADA'}, inplace=True)
+    
+    mx_plan_marcacion = mx_plan_marcacion[['ESTADO','MUNICIPIO','LADA','IX','START', 'END']]
+
+
+    mx_plan_marcacion.to_csv(path + "pnm.csv", index=False)
+    mx_plan_marcacion.to_pickle(path + "pnm.pkl")
+
+    return mx_plan_marcacion.copy()
+
+
+
+def get_base_ecommerce():
+    soql_reassignament = """
+        SELECT
+        Id,
+        CreatedDate,
+        VEC_Program_plan__r.VEC_Nombre_largo__c,
+        VEC_Program_plan__r.hed__Start_Date__c,
+        VEC_Program_plan__r.hed__Account__r.Parent.Name,
+        VEC_BusinessContact__r.Nombre_Completo__c,
+        VEC_Correo_electronico_contacto__c,
+        VEC_BusinessContact__r.Phone,
+        VEC_BusinessContact__r.MobilePhone,
+        Campus_Sede__r.Name,
+        VEC_OppOrigin__c,
+        StageName,
+        Subetapa__c,
+        OwnerId,
+        VEC_Modalidad__c
+        FROM Opportunity
+        WHERE RecordTypeId = '0122M000001cvipQAA' and OwnerId = '0053f000000Fe2SAAS' 
+        and StageName in ('Solicitud de Inscripción')
+        """
+    
+    sf = get_conn_sf()
+    res = pd.DataFrame(sf.query_all(soql_reassignament)['records'])
+    
+    res['name'] = res['VEC_BusinessContact__r'].apply(lambda x: x['Nombre_Completo__c'] if not pd.isnull(x) else None)
+    res['program_name'] = res['VEC_Program_plan__r'].apply(lambda x: x['VEC_Nombre_largo__c'] if not pd.isnull(x) else None)
+    res['campus'] = res['Campus_Sede__r'].apply(lambda x: x['Name'] if not pd.isnull(x) else None)
+    res['start_date'] = res['VEC_Program_plan__r'].apply(lambda x: x['hed__Start_Date__c'] if not pd.isnull(x) else None)
+    res['school'] = res['VEC_Program_plan__r'].apply(lambda x: x['hed__Account__r'] if not pd.isnull(x) else None)
+    res['school'] = res['school'].apply(lambda x: x['Parent']['Name'] if not pd.isnull(x) else None)
+    
+    res['phone'] = res['VEC_BusinessContact__r'].apply(lambda x: x['Phone'] if not pd.isnull(x) else None)
+    res['mobilephone'] = res['VEC_BusinessContact__r'].apply(lambda x: x['MobilePhone'] if not pd.isnull(x) else None)
+    
+    res.loc[pd.isna(res.phone), 'phone'] = res.loc[pd.isna(res.phone), 'mobilephone']
+   
+    res.rename(
+        columns={
+            'Id' : 'id',
+            'CreatedDate' : 'sf_creation_date',
+            'VEC_Correo_electronico_contacto__c':'email', 
+            'StageName':'stage', 
+            'Subetapa__c':'sub_stage',
+            'VEC_OppOrigin__c':'source',
+            'VEC_Modalidad__c':'modality'}, 
+            inplace=True)
+
+    res['processing_date'] = get_datetime()
+    res['last_name1'] = ''
+    res['last_name2'] = ''
+    res['description'] = ''
+    res['program_type'] = ''
+    res['country_code'] = ''
+
+    return res[['id','sf_creation_date', 'processing_date', 'start_date','name', 'last_name1', 'last_name2', 'email', 'country_code', 'phone','program_name', 'program_type', 'campus', 'school', 'description', 'source', 'stage', 'sub_stage', 'modality']].copy()

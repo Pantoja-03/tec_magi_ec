@@ -47,7 +47,7 @@ def upload_one_to_one(base_to_sf, base_to_sf_dict):
     
         res, r = upload_lead(lead, sf)
            
-        if not r:
+        if r == False:
             res = {
                     'errors' : res,
                     'id' : None,
