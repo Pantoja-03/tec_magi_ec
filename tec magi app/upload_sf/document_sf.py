@@ -79,7 +79,7 @@ def get_base_document(base_duplicates: pd.DataFrame):
 
 def get_base_SI(base_sesiones: pd.DataFrame):
     base_sesiones['WhoId'] = base_sesiones['sf_id'] 
-    base_sesiones['Description'] = "Este lead dejo sus datos en la convocatoria: \n" + base_sesiones['conference']
+    base_sesiones['Description'] = "Este lead dejo sus datos en la activacion: \n" + base_sesiones['conference']
     base_sesiones['RecordTypeId'] = '01241000000yvXXAAY'
     base_sesiones['Status'] = 'Completado'
     base_sesiones['Subject'] = 'Activacion'

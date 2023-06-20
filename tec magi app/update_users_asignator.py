@@ -93,7 +93,7 @@ def get_usuarios():
 
 
 #get bases
-base = pd.read_csv(r'resources/users.csv')
+base = pd.read_csv(r'resources/asignator_users.csv')
 users = conn.get_sf_users()
 users_sf = get_usuarios()
 
