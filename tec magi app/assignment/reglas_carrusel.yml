@@ -222,12 +222,6 @@ Región Internacional:
     like_program: []
     max: 9000
   - bag: 0
-    current: 2215
-    dislike_program: []
-    email: diana.aldana@tec.mx
-    like_program: []
-    max: 9000
-  - bag: 0
     current: 1611
     dislike_program: []
     email: afalconi@tec.mx
@@ -601,19 +595,19 @@ Región Nacional:
   - bag: 0
     current: 0
     dislike_program: []
+    email: alejandra.barradas@tec.mx
+    like_program: []
+    max: 9000
+  - bag: 0
+    current: 0
+    dislike_program: []
+    email: alejandra.barradas@tec.mx
+    like_program: []
+    max: 9000
+  - bag: 0
+    current: 0
+    dislike_program: []
     email: aroblesv@tec.mx
-    like_program: []
-    max: 9000
-  - bag: 0
-    current: 0
-    dislike_program: []
-    email: berelopez.a@tec.mx
-    like_program: []
-    max: 9000
-  - bag: 0
-    current: 0
-    dislike_program: []
-    email: berelopez.a@tec.mx
     like_program: []
     max: 9000
   - bag: 0
@@ -649,12 +643,6 @@ Región Nacional:
   - bag: 0
     current: 0
     dislike_program: []
-    email: iris.m@tec.mx
-    like_program: []
-    max: 9000
-  - bag: 0
-    current: 0
-    dislike_program: []
     email: isisneith.reynoso@tec.mx
     like_program: []
     max: 9000
@@ -679,7 +667,7 @@ Región Nacional:
   - bag: 0
     current: 0
     dislike_program: []
-    email: karredondo@tec.mx
+    email: jonathan.zam@tec.mx
     like_program: []
     max: 9000
   - bag: 0
@@ -745,13 +733,13 @@ Región Nacional:
   - bag: 0
     current: 0
     dislike_program: []
-    email: sarai.chavez@tec.mx
+    email: rosa.solis@tec.mx
     like_program: []
     max: 9000
   - bag: 0
     current: 0
     dislike_program: []
-    email: vb.perez@tec.mx
+    email: sarai.chavez@tec.mx
     like_program: []
     max: 9000
   - bag: 0
