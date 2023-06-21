@@ -39,6 +39,8 @@ def get_region_probabilty():
         return "Región TLG"
     if n < .2:
         return "Región ECL"
+    if n < .3:
+        return "Región Internacional"
     else:
         return "Región Nacional" 
     
