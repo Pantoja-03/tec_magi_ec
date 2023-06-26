@@ -178,12 +178,12 @@ def validate_duplicates(base: pd.DataFrame):
 def add_status(status, duplicated, duplicated_sf, valid_lead):
     if valid_lead == False:
         return "Invalido"
-    
-    if duplicated:
-        return "Duplicado en Carga"
 
     if duplicated_sf:
         return "Duplicado en SF"
+    
+    if duplicated:
+        return "Duplicado en Carga"
 
     return status
 
