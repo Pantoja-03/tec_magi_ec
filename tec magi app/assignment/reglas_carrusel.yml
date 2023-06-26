@@ -91,7 +91,7 @@ Región ECL:
     max: 9000
   filters: []
   id: 1d795b1c-9542-4977-98f6-36602ade1158
-  next_asesor: 10
+  next_asesor: 5
 Región EGADE:
 - asesores: []
   filters: []
@@ -283,7 +283,7 @@ Región Internacional:
     max: 9000
   filters: []
   id: faa03cd2-d7be-4afb-baeb-33b055af2293
-  next_asesor: 2
+  next_asesor: 14
 Región Nacional:
 - asesores:
   - bag: 0
@@ -314,12 +314,6 @@ Región Nacional:
     current: 3276
     dislike_program: []
     email: c.ochoa@tec.mx
-    like_program: []
-    max: 9000
-  - bag: 0
-    current: 3525
-    dislike_program: []
-    email: christian.valdez@tec.mx
     like_program: []
     max: 9000
   - bag: 0
@@ -589,25 +583,37 @@ Región Nacional:
   - bag: 0
     current: 0
     dislike_program: []
-    email: abolanos@tec.mx
-    like_program: []
-    max: 9000
-  - bag: 0
-    current: 0
-    dislike_program: []
     email: alejandra.barradas@tec.mx
     like_program: []
     max: 9000
   - bag: 0
     current: 0
     dislike_program: []
-    email: alejandra.barradas@tec.mx
+    email: alex.hernandez@tec.mx
+    like_program: []
+    max: 9000
+  - bag: 0
+    current: 0
+    dislike_program: []
+    email: alex.hernandez@tec.mx
     like_program: []
     max: 9000
   - bag: 0
     current: 0
     dislike_program: []
     email: aroblesv@tec.mx
+    like_program: []
+    max: 9000
+  - bag: 0
+    current: 0
+    dislike_program: []
+    email: abolanos@tec.mx
+    like_program: []
+    max: 9000
+  - bag: 0
+    current: 0
+    dislike_program: []
+    email: jcsd@tec.mx
     like_program: []
     max: 9000
   - bag: 0
@@ -643,31 +649,13 @@ Región Nacional:
   - bag: 0
     current: 0
     dislike_program: []
-    email: isisneith.reynoso@tec.mx
-    like_program: []
-    max: 9000
-  - bag: 0
-    current: 0
-    dislike_program: []
-    email: isroma@tec.mx
-    like_program: []
-    max: 9000
-  - bag: 0
-    current: 0
-    dislike_program: []
-    email: jcsd@tec.mx
+    email: iris.m@tec.mx
     like_program: []
     max: 9000
   - bag: 0
     current: 0
     dislike_program: []
     email: jmarielz@tec.mx
-    like_program: []
-    max: 9000
-  - bag: 0
-    current: 0
-    dislike_program: []
-    email: jonathan.zam@tec.mx
     like_program: []
     max: 9000
   - bag: 0
@@ -727,30 +715,18 @@ Región Nacional:
   - bag: 0
     current: 0
     dislike_program: []
-    email: njimenezg@tec.mx
-    like_program: []
-    max: 9000
-  - bag: 0
-    current: 0
-    dislike_program: []
-    email: rosa.solis@tec.mx
-    like_program: []
-    max: 9000
-  - bag: 0
-    current: 0
-    dislike_program: []
     email: sarai.chavez@tec.mx
     like_program: []
     max: 9000
   - bag: 0
     current: 0
     dislike_program: []
-    email: veronica.alvarado@tec.mx
+    email: vb.perez@tec.mx
     like_program: []
     max: 9000
   filters: []
   id: a48c0d4f-3b6b-41e0-af06-85f51b99ce07
-  next_asesor: 50
+  next_asesor: 64
 Región TLG:
 - asesores:
   - bag: 0
@@ -881,4 +857,4 @@ Región TLG:
     max: 9000
   filters: []
   id: 1d795b1c-9542-4977-98f6-36602ade0003
-  next_asesor: 18
+  next_asesor: 2
