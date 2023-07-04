@@ -91,7 +91,7 @@ Región ECL:
     max: 9000
   filters: []
   id: 1d795b1c-9542-4977-98f6-36602ade1158
-  next_asesor: 5
+  next_asesor: 11
 Región EGADE:
 - asesores: []
   filters: []
@@ -283,7 +283,7 @@ Región Internacional:
     max: 9000
   filters: []
   id: faa03cd2-d7be-4afb-baeb-33b055af2293
-  next_asesor: 14
+  next_asesor: 10
 Región Nacional:
 - asesores:
   - bag: 0
@@ -613,6 +613,18 @@ Región Nacional:
   - bag: 0
     current: 0
     dislike_program: []
+    email: carlos.lugo@tec.mx
+    like_program: []
+    max: 9000
+  - bag: 0
+    current: 0
+    dislike_program: []
+    email: carlos.lugo@tec.mx
+    like_program: []
+    max: 9000
+  - bag: 0
+    current: 0
+    dislike_program: []
     email: jcsd@tec.mx
     like_program: []
     max: 9000
@@ -649,12 +661,6 @@ Región Nacional:
   - bag: 0
     current: 0
     dislike_program: []
-    email: iris.m@tec.mx
-    like_program: []
-    max: 9000
-  - bag: 0
-    current: 0
-    dislike_program: []
     email: jmarielz@tec.mx
     like_program: []
     max: 9000
@@ -685,13 +691,7 @@ Región Nacional:
   - bag: 0
     current: 0
     dislike_program: []
-    email: margarita.godoy@tec.mx
-    like_program: []
-    max: 9000
-  - bag: 0
-    current: 0
-    dislike_program: []
-    email: margarita.godoy@tec.mx
+    email: avila.charles@tec.mx
     like_program: []
     max: 9000
   - bag: 0
@@ -715,18 +715,24 @@ Región Nacional:
   - bag: 0
     current: 0
     dislike_program: []
-    email: sarai.chavez@tec.mx
+    email: paola.che@tec.mx
     like_program: []
     max: 9000
   - bag: 0
     current: 0
     dislike_program: []
-    email: vb.perez@tec.mx
+    email: rosa.solis@tec.mx
+    like_program: []
+    max: 9000
+  - bag: 0
+    current: 0
+    dislike_program: []
+    email: sarai.chavez@tec.mx
     like_program: []
     max: 9000
   filters: []
   id: a48c0d4f-3b6b-41e0-af06-85f51b99ce07
-  next_asesor: 64
+  next_asesor: 32
 Región TLG:
 - asesores:
   - bag: 0
@@ -857,4 +863,4 @@ Región TLG:
     max: 9000
   filters: []
   id: 1d795b1c-9542-4977-98f6-36602ade0003
-  next_asesor: 2
+  next_asesor: 4

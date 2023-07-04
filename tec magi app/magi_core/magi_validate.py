@@ -130,17 +130,18 @@ def validate_phone(base: pd.DataFrame):
     return base.copy()
 
 
-def validate_program(base: pd.DataFrame):
+def validate_program(base: pd.DataFrame, alert_teams):
     base, programs_invalids = v_program.validate(base)
 
-    if len(programs_invalids) > 0:
-        msg = 'No se encontraron en los catalogos los siguientes programas: \n'
-        for program in programs_invalids.iterrows():
-            program_name = program[1]['corrected_program_name']
-            msg = f"{msg} \n\t {program_name} - {program[1]['source']}"
-
-        #Send warning
-        requests.post(url_teams, json={'text': msg})
+    if alert_teams == True:
+        if len(programs_invalids) > 0:
+            msg = 'No se encontraron en los catalogos los siguientes programas: \n'
+            for program in programs_invalids.iterrows():
+                program_name = program[1]['corrected_program_name']
+                msg = f"{msg} \n\t {program_name} - {program[1]['source']}"
+    
+            #Send warning
+            requests.post(url_teams, json={'text': msg})
     
     return base.copy()
 
@@ -189,7 +190,7 @@ def add_status(status, duplicated, duplicated_sf, valid_lead):
 
 
 
-def validate(base: pd.DataFrame):
+def validate(base: pd.DataFrame, alert_teams = True):
     #format
     print(f'Se van a procesar {len(base)} datos...')
     print("\n.........")
@@ -200,7 +201,7 @@ def validate(base: pd.DataFrame):
     #add validations
     base = validate_email(base)
     base = validate_phone(base)
-    base = validate_program(base)
+    base = validate_program(base, alert_teams)
     base = validate_campus(base)
     
     

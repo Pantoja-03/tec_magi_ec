@@ -29,12 +29,12 @@ def init_log() -> logging.Logger:
 log = init_log()
 
 
-def run_magi(base: pd.DataFrame, use_bulk = True):
+def run_magi(base: pd.DataFrame, use_bulk = True, alert_teams = True):
     
     try:
         #magi validate
         log.info(f'Validando leads - {magi_conn.get_datetime()}')
-        base, sf_leads = magi_validate.validate(base)
+        base, sf_leads = magi_validate.validate(base, alert_teams)
 
         
         #Verify status

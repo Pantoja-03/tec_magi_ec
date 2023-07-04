@@ -49,7 +49,7 @@ try:
     #verify base
     if len(base) > 0:
         #magi....
-        base, res = magi_main.run_magi(base, use_bulk = False)
+        base, res = magi_main.run_magi(base, use_bulk = False, alert_teams = False)
 
         #get end time
         time_elapsed = str( magi_conn.get_datetime() - start_time )[-8:]

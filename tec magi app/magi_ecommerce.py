@@ -58,8 +58,8 @@ try:
     print("\nLeyendo base de Ecommerce...")
     base =  magi_conn.get_base_ecommerce()
     base['start_date'] = pd.to_datetime(base['start_date'])
-    base_old = base[base['start_date'].dt.date < (date.today() + timedelta(days = 1))]
-    base = base[base['start_date'].dt.date > (date.today() + timedelta(days = 1))]
+    base_old = base[base['start_date'].dt.date < date.today()]
+    base = base[base['start_date'].dt.date >= date.today()]
     
     if len(base) > 0:
     
