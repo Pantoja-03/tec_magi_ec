@@ -36,7 +36,14 @@ def run_magi(base: pd.DataFrame, use_bulk = True, alert_teams = True):
         log.info(f'Validando leads - {magi_conn.get_datetime()}')
         base, sf_leads = magi_validate.validate(base, alert_teams)
 
-        
+        #validate pendings
+        if alert_teams == False:
+            base = base[base['status'] != 'Invalido']
+            
+            if len(base) < 1:
+                return base.copy(), True
+            
+            
         #Verify status
         if len(base[base['status'] == 'Contacto Nuevo']) > 0:
             
