@@ -1,9 +1,4 @@
-# -*- coding: utf-8 -*-
-"""
-Created on Mon Apr 24 09:44:26 2023
 
-@author: segur
-"""
 
 import pandas as pd
 import gsuite_api.gsuite as gsuite

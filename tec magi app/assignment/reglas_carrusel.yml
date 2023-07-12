@@ -91,7 +91,7 @@ Región ECL:
     max: 9000
   filters: []
   id: 1d795b1c-9542-4977-98f6-36602ade1158
-  next_asesor: 11
+  next_asesor: 9
 Región EGADE:
 - asesores: []
   filters: []
@@ -243,12 +243,6 @@ Región Internacional:
     current: 1133
     dislike_program: []
     email: erika_contreras@tec.mx
-    like_program: []
-    max: 9000
-  - bag: 0
-    current: 1177
-    dislike_program: []
-    email: luismarin@tec.mx
     like_program: []
     max: 9000
   - bag: 0
@@ -583,12 +577,6 @@ Región Nacional:
   - bag: 0
     current: 0
     dislike_program: []
-    email: alejandra.barradas@tec.mx
-    like_program: []
-    max: 9000
-  - bag: 0
-    current: 0
-    dislike_program: []
     email: alex.hernandez@tec.mx
     like_program: []
     max: 9000
@@ -625,12 +613,6 @@ Región Nacional:
   - bag: 0
     current: 0
     dislike_program: []
-    email: jcsd@tec.mx
-    like_program: []
-    max: 9000
-  - bag: 0
-    current: 0
-    dislike_program: []
     email: c.ochoa@tec.mx
     like_program: []
     max: 9000
@@ -649,13 +631,19 @@ Región Nacional:
   - bag: 0
     current: 0
     dislike_program: []
-    email: daniela_barragan_m@tec.mx
+    email: iescobed@tec.mx
     like_program: []
     max: 9000
   - bag: 0
     current: 0
     dislike_program: []
-    email: iescobed@tec.mx
+    email: iris.m@tec.mx
+    like_program: []
+    max: 9000
+  - bag: 0
+    current: 0
+    dislike_program: []
+    email: isisneith.reynoso@tec.mx
     like_program: []
     max: 9000
   - bag: 0
@@ -697,25 +685,7 @@ Región Nacional:
   - bag: 0
     current: 0
     dislike_program: []
-    email: miriam_mtz_mont@tec.mx
-    like_program: []
-    max: 9000
-  - bag: 0
-    current: 0
-    dislike_program: []
-    email: miriam_mtz_mont@tec.mx
-    like_program: []
-    max: 9000
-  - bag: 0
-    current: 0
-    dislike_program: []
     email: myrna_ocampo@tec.mx
-    like_program: []
-    max: 9000
-  - bag: 0
-    current: 0
-    dislike_program: []
-    email: paola.che@tec.mx
     like_program: []
     max: 9000
   - bag: 0
@@ -730,9 +700,27 @@ Región Nacional:
     email: sarai.chavez@tec.mx
     like_program: []
     max: 9000
+  - bag: 0
+    current: 0
+    dislike_program: []
+    email: sarai.chavez@tec.mx
+    like_program: []
+    max: 9000
+  - bag: 0
+    current: 0
+    dislike_program: []
+    email: montserrat.baena@tec.mx
+    like_program: []
+    max: 9000
+  - bag: 0
+    current: 0
+    dislike_program: []
+    email: montserrat.baena@tec.mx
+    like_program: []
+    max: 9000
   filters: []
   id: a48c0d4f-3b6b-41e0-af06-85f51b99ce07
-  next_asesor: 32
+  next_asesor: 44
 Región TLG:
 - asesores:
   - bag: 0
@@ -863,4 +851,4 @@ Región TLG:
     max: 9000
   filters: []
   id: 1d795b1c-9542-4977-98f6-36602ade0003
-  next_asesor: 4
+  next_asesor: 7
